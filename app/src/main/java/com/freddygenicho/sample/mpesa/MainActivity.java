@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.freddygenicho.mpesa.stkpush.Mode;
 import com.freddygenicho.mpesa.stkpush.model.Token;
 import com.freddygenicho.mpesa.stkpush.api.response.STKPushResponse;
 import com.freddygenicho.mpesa.stkpush.interfaces.STKListener;
@@ -42,12 +43,14 @@ public class MainActivity extends AppCompatActivity {
                 "test", //The account reference
                 "test"); //The transaction description
 
-        final Mpesa mpesa = new Mpesa(Config.CONSUMER_KEY, Config.CONSUMER_SECRET, true);
+
+        final Mpesa mpesa = new Mpesa(Config.CONSUMER_KEY, Config.CONSUMER_SECRET, Mode.SANDBOX);
 
         try {
             mpesa.getToken(new TokenListener() {
                 @Override
                 public void onToken(Token token) {
+
                     mpesa.startStkPush(token, stkPush, new STKListener() {
                         @Override
                         public void onResponse(STKPushResponse stkPushResponse) {
@@ -60,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.e(TAG, "onError: " + throwable.getMessage());
                         }
                     });
+
                 }
 
                 @Override

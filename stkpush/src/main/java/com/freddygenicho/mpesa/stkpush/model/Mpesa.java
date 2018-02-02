@@ -2,6 +2,7 @@ package com.freddygenicho.mpesa.stkpush.model;
 
 import android.util.Base64;
 
+import com.freddygenicho.mpesa.stkpush.Mode;
 import com.freddygenicho.mpesa.stkpush.api.RetroClient;
 import com.freddygenicho.mpesa.stkpush.api.response.STKPushResponse;
 import com.freddygenicho.mpesa.stkpush.interfaces.STKListener;
@@ -24,12 +25,12 @@ public class Mpesa {
     private CompositeSubscription mCompositeSubscription;
     private String consumerKey;
     private String consumerSecret;
-    private boolean isProduction;
+    private Mode mode;
 
-    public Mpesa(String consumerKey, String consumerSecret, boolean isProduction) {
+    public Mpesa(String consumerKey, String consumerSecret, Mode mode) {
         this.consumerKey = consumerKey;
         this.consumerSecret = consumerSecret;
-        this.isProduction = isProduction;
+        this.mode = mode;
         this.mCompositeSubscription = new CompositeSubscription();
     }
 
@@ -39,7 +40,7 @@ public class Mpesa {
      * @param tokenListener - callback listener
      */
     public void getToken(final TokenListener tokenListener) throws UnsupportedEncodingException {
-        mCompositeSubscription.add(RetroClient.getApiService(isProduction).generateAccessToken(getAuth())
+        mCompositeSubscription.add(RetroClient.getApiService(mode).generateAccessToken(getAuth())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<Token>() {
@@ -81,7 +82,7 @@ public class Mpesa {
      */
     public void startStkPush(Token token, STKPush stkPush, final STKListener stkListener) {
         String authorization = "Bearer " + token.getAccessToken();
-        mCompositeSubscription.add(RetroClient.getApiService(isProduction).stkPush(authorization, stkPush)
+        mCompositeSubscription.add(RetroClient.getApiService(mode).stkPush(authorization, stkPush)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<STKPushResponse>() {
@@ -104,7 +105,7 @@ public class Mpesa {
 
     public void stkPushQuery(Token token, STKQuery stkQuery, final STKQueryListener stkQueryListener) {
         String authorization = "Bearer " + token.getAccessToken();
-        mCompositeSubscription.add(RetroClient.getApiService(isProduction).stkPushQuery(authorization, stkQuery)
+        mCompositeSubscription.add(RetroClient.getApiService(mode).stkPushQuery(authorization, stkQuery)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(new Subscriber<STKPushResponse>() {
