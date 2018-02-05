@@ -23,7 +23,7 @@ Basic Usage:
 
 Step 1. **Add the JitPack repository to your build file**
 
-```
+```android
 allprojects {
 		repositories {
 			...
@@ -56,7 +56,7 @@ Mpesa mpesa = new Mpesa(YOUR_CONSUMER_KEY, YOUR_CONSUMER_SECRET, Mode.SANDBOX);
 
 Step 4. Call `getToken()` method to get an authorization token from mpesa API
 
-```
+```android
 mpesa.getToken(new TokenListener() {
                 @Override
                 public void onToken(Token token) {
