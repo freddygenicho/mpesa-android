@@ -81,6 +81,15 @@ public class Mpesa {
      * @param stkListener - callback method
      */
     public void startStkPush(Token token, STKPush stkPush, final STKListener stkListener) {
+
+        if (token == null) {
+            throw new RuntimeException("Token cannot be null");
+        }
+
+        if (stkPush == null) {
+            throw new RuntimeException("STKPush cannot be null");
+        }
+
         String authorization = "Bearer " + token.getAccessToken();
         mCompositeSubscription.add(RetroClient.getApiService(mode).stkPush(authorization, stkPush)
                 .observeOn(AndroidSchedulers.mainThread())

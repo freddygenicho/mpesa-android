@@ -27,29 +27,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startMpesa(View view) {
-
-        String phone_number = "";
-
-        final STKPush stkPush = new STKPush(
-                Config.BUSINESS_SHORT_CODE,
-                STKPush.getPassword(Config.BUSINESS_SHORT_CODE, Config.PASSKEY, STKPush.getTimestamp()),
-                STKPush.getTimestamp(),
-                Config.TRANSACTION_TYPE,
-                String.valueOf(100),
-                STKPush.sanitizePhoneNumber(phone_number),
-                Config.PARTYB,
-                STKPush.sanitizePhoneNumber(phone_number),
-                Config.CALLBACKURL,
-                "test", //The account reference
-                "test"); //The transaction description
-
-
         final Mpesa mpesa = new Mpesa(Config.CONSUMER_KEY, Config.CONSUMER_SECRET, Mode.SANDBOX);
 
         try {
             mpesa.getToken(new TokenListener() {
                 @Override
                 public void onToken(Token token) {
+
+                    String phone_number = "";
+
+                    STKPush stkPush = new STKPush();
+                    stkPush.setBusinessShortCode(Config.BUSINESS_SHORT_CODE);
+                    stkPush.setTimestamp(STKPush.getTimestamp());
+                    stkPush.setTransactionType(Config.TRANSACTION_TYPE);
+                    stkPush.setAmount("100");
+                    stkPush.setPartyA(STKPush.sanitizePhoneNumber(phone_number));
+                    stkPush.setPartyB(Config.PARTYB);
+                    stkPush.setPhoneNumber(STKPush.sanitizePhoneNumber(phone_number));
+                    stkPush.setCallBackURL(Config.CALLBACKURL);
+                    stkPush.setAccountReference("test");
+                    stkPush.setTransactionDesc("some description");
 
                     mpesa.startStkPush(token, stkPush, new STKListener() {
                         @Override
