@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "924582840105",
+    "firebase_url": "https://mpesa-361a5.firebaseio.com",
+    "project_id": "mpesa-361a5",
+    "storage_bucket": "mpesa-361a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924582840105:android:fc574cbed2ca0602",
+        "android_client_info": {
+          "package_name": "com.freddygenicho.sample.mpesa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924582840105-sil851sen6lvktp073tmsg2v3bp22kgu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.freddygenicho.sample.mpesa",
+            "certificate_hash": "f3062ad124280262eabf7e1b9d3bc785a725c600"
+          }
+        },
+        {
+          "client_id": "924582840105-etpkj5hgebbto4m9embstap86akkul72.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAWhjo4VVDVGoq6pwXb9RYVwetfi74M7U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924582840105-etpkj5hgebbto4m9embstap86akkul72.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

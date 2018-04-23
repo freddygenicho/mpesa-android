@@ -13,12 +13,12 @@ public interface TokenListener {
      *
      * @param token - object from mpesa api response
      */
-    void onToken(Token token);
+    void onTokenSuccess(Token token);
 
     /**
      * called when an error occurs
      *
      * @param throwable - an exception
      */
-    void OnError(Throwable throwable);
+    void OnTokenError(Throwable throwable);
 }

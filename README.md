@@ -36,7 +36,7 @@ Step 2. ** Add the dependency **
 
 ```
 dependencies {
-	        compile 'com.github.freddygenicho:mpesa-android:1.1.1'
+	  compile 'com.github.freddygenicho:mpesa-android:1.1.1'
 	}
 ```
 
@@ -57,7 +57,7 @@ Mpesa mpesa = new Mpesa(YOUR_CONSUMER_KEY, YOUR_CONSUMER_SECRET, Mode.SANDBOX);
 Step 4. Call `getToken()` method to get an authorization token from mpesa API
 
 ```
-mpesa.getToken(new TokenListener() {
+            mpesa.getToken(new TokenListener() {
                 @Override
                 public void onToken(Token token) {
                     //todo save token or call the stkpush();

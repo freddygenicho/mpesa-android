@@ -66,6 +66,15 @@ public class STKPushResponse {
         this.callbackMetadata = callbackMetadata;
     }
 
+    public String toString() {
+        return "{\"MerchantRequestID\":\"" + merchantRequestID + "\"," +
+                "\"checkoutRequestID\":\"" + checkoutRequestID + "\"," +
+                "\"resultCode\":\"" + resultCode + "\"," +
+                "\"resultDesc\":\"" + resultDesc + "\"," +
+                "\"callbackMetadata\":\"" + callbackMetadata +
+                "\"}";
+    }
+
     public String toJson(STKPushResponse stkPushResponse) {
         Gson gson = new Gson();
         return gson.toJson(stkPushResponse);

@@ -4,6 +4,8 @@ import com.freddygenicho.mpesa.stkpush.Mode;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -29,17 +31,23 @@ public class RetroClient {
 
         RxJavaCallAdapterFactory rxAdapter = RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io());
 
+        OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        clientBuilder.addInterceptor(loggingInterceptor);
+
         return new Retrofit.Builder()
                 .baseUrl(url)
                 .addCallAdapterFactory(rxAdapter)
                 .addConverterFactory(GsonConverterFactory.create(gson))
+                .client(clientBuilder.build())
                 .build();
     }
 
     /**
      * Get API Service
      *
-     * @return API Service
+     * @return MpesaApi Service
      */
     public static MpesaApi getApiService(Mode mode) {
         String url = SANDBOX_URL;
