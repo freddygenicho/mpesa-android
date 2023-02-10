@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Mpesa.iml" filepath="$PROJECT_DIR$/Mpesa.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/stkpush/stkpush.iml" filepath="$PROJECT_DIR$/stkpush/stkpush.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mpesa-android.iml" filepath="$PROJECT_DIR$/mpesa-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mpesa-android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mpesa-android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mpesa-android.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mpesa-android.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mpesa-android.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mpesa-android.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mpesa-android.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mpesa-android.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stkpush/mpesa-android.stkpush.iml" filepath="$PROJECT_DIR$/.idea/modules/stkpush/mpesa-android.stkpush.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stkpush/mpesa-android.stkpush.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/stkpush/mpesa-android.stkpush.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stkpush/mpesa-android.stkpush.main.iml" filepath="$PROJECT_DIR$/.idea/modules/stkpush/mpesa-android.stkpush.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/stkpush/mpesa-android.stkpush.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/stkpush/mpesa-android.stkpush.unitTest.iml" />
     </modules>
   </component>
 </project>
